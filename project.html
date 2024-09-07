@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Simon Karlsson</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ... (Copy the styles from the main page and add the following) ... */
+        .file-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .file-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        .file-icon {
+            margin-right: 10px;
+        }
+        .file-name {
+            flex-grow: 1;
+        }
+        .file-size {
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simon Karlsson</h1>
+            <p id="subtitle-en">Project Details</p>
+            <p id="subtitle-sv" class="hidden">Projektdetaljer</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html" id="nav-back-en">Back to Portfolio</a></li>
+                <li><a href="index.html" id="nav-back-sv" class="hidden">Tillbaka till Portföljen</a></li>
+            </ul>
+        </nav>
+
+        <main id="project-details">
+            <!-- Project details will be dynamically loaded here -->
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Simon Karlsson. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        async function loadProjectDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id');
+
+            try {
+                const response = await fetch('projects.json');
+                const projects = await response.json();
+                const project = projects.find(p => p.id === projectId);
+
+                if (project) {
+                    const container = document.getElementById('project-details');
+                    const converter = new showdown.Converter();
+
+                    container.innerHTML = `
+                        <h2 id="project-title-en">${project.title.en}</h2>
+                        <h2 id="project-title-sv" class="hidden">${project.title.sv}</h2>
+                        <img src="${project.image}" alt="${project.title.en}" style="max-width: 100%; height: auto;">
+                        <div id="project-desc-en">${converter.makeHtml(project.fullDescription.en)}</div>
+                        <div id="project-desc-sv" class="hidden">${converter.makeHtml(project.fullDescription.sv)}</div>
+                        <h3 id="files-title-en">Project Files</h3>
+                        <h3 id="files-title-sv" class="hidden">Projektfiler</h3>
+                        <ul class="file-list">
+                            ${project.files.map(file => `
+                                <li class="file-item">
+                                    <i class="file-icon fas fa-file"></i>
+                                    <span class="file-name">${file.name}</span>
+                                    <span class="file-size">${file.size}</span>
+                                    <a href="${file.url}" download class="button">Download</a>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    `;
+                } else {
+                    container.innerHTML = '<p>Project not found.</p>';
+                }
+            } catch (error) {
+                console.error('Error loading project details:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadProjectDetails);
+
+        // ... (Include the language switching function from the main page) ...
+    </script>
+</body>
+</html>

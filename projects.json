@@ -1,0 +1,68 @@
+[
+  {
+    "id": "project1",
+    "title": {
+      "en": "Bachelor's Thesis Project (May 2024) - Design of insectoid propulsion system",
+      "sv": "Kandidatarbete (Maj 2024) - Design av framdrivningssystem för insektslik robot"
+    },
+    "image": "/api/placeholder/800/600",
+    "shortDescription": {
+      "en": "A brief overview of the bachelor's thesis project on insectoid propulsion systems.",
+      "sv": "En kort översikt av kandidatarbetet om framdrivningssystem för insektslika robotar."
+    },
+    "fullDescription": {
+      "en": "Detailed description of the bachelor's thesis project, including motivation, methodology, results, and conclusions. This project focuses on designing an efficient propulsion system inspired by insect locomotion for small-scale robots.",
+      "sv": "Detaljerad beskrivning av kandidatarbetet, inklusive motivation, metodik, resultat och slutsatser. Detta projekt fokuserar på att designa ett effektivt framdrivningssystem inspirerat av insekters rörelse för småskaliga robotar."
+    },
+    "files": [
+      {
+        "name": "thesis_report.pdf",
+        "size": "2.4 MB",
+        "url": "files/project1/thesis_report.pdf"
+      },
+      {
+        "name": "simulation_code.py",
+        "size": "15 KB",
+        "url": "files/project1/simulation_code.py"
+      },
+      {
+        "name": "cad_model.step",
+        "size": "5.2 MB",
+        "url": "files/project1/cad_model.step"
+      }
+    ]
+  },
+  {
+    "id": "project2",
+    "title": {
+      "en": "Data Collection and Analysis - Grain Dryer Testing",
+      "sv": "Datainsamling och Analys - Tester på Spannmålstork"
+    },
+    "image": "/api/placeholder/800/600",
+    "shortDescription": {
+      "en": "A summary of the data collection and analysis project for grain dryer testing at Akron-Maskiner AB.",
+      "sv": "En sammanfattning av datainsamlings- och analysprojektet för tester av spannmålstork på Akron-Maskiner AB."
+    },
+    "fullDescription": {
+      "en": "Comprehensive overview of the grain dryer testing project at Akron-Maskiner AB. This project involved collecting data from various sensors, analyzing performance metrics, and using CAD software to propose design improvements based on the findings.",
+      "sv": "Omfattande översikt av projektet för testning av spannmålstork på Akron-Maskiner AB. Detta projekt involverade insamling av data från olika sensorer, analys av prestandamått och användning av CAD-programvara för att föreslå designförbättringar baserat på resultaten."
+    },
+    "files": [
+      {
+        "name": "data_analysis_report.pdf",
+        "size": "1.8 MB",
+        "url": "files/project2/data_analysis_report.pdf"
+      },
+      {
+        "name": "sensor_data.csv",
+        "size": "500 KB",
+        "url": "files/project2/sensor_data.csv"
+      },
+      {
+        "name": "dryer_improvements.dwg",
+        "size": "3.5 MB",
+        "url": "files/project2/dryer_improvements.dwg"
+      }
+    ]
+  }
+]
