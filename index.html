@@ -301,9 +301,32 @@
                     <p id="project2-desc-en">During my summer job at Akron-Maskiner AB, I worked on data collection and analysis from tests performed on a grain dryer. This project involved using Solidworks and AutoCAD for certain aspects of the work.</p>
                     <p id="project2-desc-sv" class="hidden">Under mitt sommarjobb på Akron-Maskiner AB arbetade jag med datainsamling och analys från tester utförda på en spannmålstork. Detta projekt involverade användning av Solidworks och AutoCAD för vissa aspekter av arbetet.</p>
                 </div> -->
+
+                <section id="contact">
+                    <h2 id="contact-title-en">Contact</h2>
+                    <h2 id="contact-title-sv" class="hidden">Kontakt</h2>
+                    <p>Simon Karlsson</p>
+                    <p>Barnegatan 4, 53430 Vara</p>
+                    <p>+46 723 25 10 70</p>
+                    <p>simonkarlsson02@outlook.com</p>
+                </section>
+            </main>
+            
+            <footer>
+                <p>&copy; 2024 Simon Karlsson. All rights reserved.</p>
+            </footer>
         <script>
         // ... (previous JavaScript for language switching remains the same) ...
-
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[id$="-en"], [id$="-sv"]');
+            elements.forEach(el => {
+                if (el.id.endsWith(`-${lang}`)) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+        }
         // Function to load projects
         async function loadProjects() {
             try {
