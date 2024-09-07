@@ -5,7 +5,7 @@
       "en": "Bachelor's Thesis Project (May 2024) - Design of insectoid propulsion system",
       "sv": "Kandidatarbete (Maj 2024) - Design av framdrivningssystem för insektslik robot"
     },
-    "image": "/api/placeholder/800/600",
+    "image": "Files/Project1/Images/System analys.png",
     "shortDescription": {
       "en": "A brief overview of the bachelor's thesis project on insectoid propulsion systems.",
       "sv": "En kort översikt av kandidatarbetet om framdrivningssystem för insektslika robotar."
@@ -16,9 +16,9 @@
     },
     "files": [
       {
-        "name": "thesis_report.pdf",
+        "name": "thesis_report.txt",
         "size": "2.4 MB",
-        "url": "files/project1/thesis_report.pdf"
+        "url": "Files/Project1/thesis_report.txt"
       },
       {
         "name": "simulation_code.py",
