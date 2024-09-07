@@ -1,0 +1,26 @@
+[
+  {
+    "id": "project1",
+    "title": {
+      "en": "Bachelor's Thesis Project (May 2024) - Design of insectoid propulsion system",
+      "sv": "Kandidatarbete (Maj 2024) - Design av framdrivningssystem för insektslik robot"
+    },
+    "image": "/api/placeholder/800/600",
+    "description": {
+      "en": "Description of the bachelor's thesis project, including its purpose, your role, and the outcomes.",
+      "sv": "Beskrivning av kandidatarbetet, inklusive syfte, din roll och resultat."
+    }
+  },
+  {
+    "id": "project2",
+    "title": {
+      "en": "Data Collection and Analysis - Grain Dryer Testing",
+      "sv": "Datainsamling och Analys - Tester på Spannmålstork"
+    },
+    "image": "/api/placeholder/800/600",
+    "description": {
+      "en": "During my summer job at Akron-Maskiner AB, I worked on data collection and analysis from tests performed on a grain dryer. This project involved using Solidworks and AutoCAD for certain aspects of the work.",
+      "sv": "Under mitt sommarjobb på Akron-Maskiner AB arbetade jag med datainsamling och analys från tester utförda på en spannmålstork. Detta projekt involverade användning av Solidworks och AutoCAD för vissa aspekter av arbetet."
+    }
+  }
+]

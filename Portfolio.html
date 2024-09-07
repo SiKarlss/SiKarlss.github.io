@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Karlsson - Engineering Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        section {
+            margin: 4rem 0;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .language-switch {
+            text-align: right;
+            margin: 1rem 0;
+        }
+
+        .language-switch button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-switch button:hover {
+            background-color: var(--primary-color);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="language-switch">
+            <button onclick="switchLanguage('en')">English</button>
+            <button onclick="switchLanguage('sv')">Svenska</button>
+        </div>
+
+        <header>
+            <h1>Simon Karlsson</h1>
+            <p id="subtitle-en">Engineering Portfolio</p>
+            <p id="subtitle-sv" class="hidden">Ingenjörsportfolio</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#about" id="nav-about-en">About</a></li>
+                <li><a href="#about" id="nav-about-sv" class="hidden">Om mig</a></li>
+                <li><a href="#resume" id="nav-resume-en">Resume</a></li>
+                <li><a href="#resume" id="nav-resume-sv" class="hidden">CV</a></li>
+                <li><a href="#projects" id="nav-projects-en">Projects</a></li>
+                <li><a href="#projects" id="nav-projects-sv" class="hidden">Projekt</a></li>
+                <li><a href="#contact" id="nav-contact-en">Contact</a></li>
+                <li><a href="#contact" id="nav-contact-sv" class="hidden">Kontakt</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <section id="about">
+                <h2 id="about-title-en">About Me</h2>
+                <h2 id="about-title-sv" class="hidden">Om mig</h2>
+                <div class="card">
+                    <p id="about-content-en">I am a 22-year-old student taking a break from my studies to gain real-world experience in engineering. I'm looking to gain valuable experience in the engineering profession during this year off, which will help me decide on my future master's program specialization.</p>
+                    <p id="about-content-sv" class="hidden">Jag är en 22 årig student som behöver en paus från studierna, för att få verklighetskoppling till det jag läst och förhoppningsvis bestämma vilket masterprogram jag vill läsa. Jag har därför bestämt mig för att ta ett studieuppehåll i ett år. Under detta år vill jag skaffa mig värdefull erfarenhet inom ingenjörsyrket.</p>
+                </div>
+            </section>
+            
+            <section id="resume">
+                <h2 id="resume-title-en">Resume</h2>
+                <h2 id="resume-title-sv" class="hidden">CV</h2>
+                
+                <div class="card">
+                    <h3 id="specialization-en">Specialization</h3>
+                    <h3 id="specialization-sv" class="hidden">Specialisering</h3>
+                    <div class="skills">
+                        <span class="skill" id="spec1-en">System Design</span>
+                        <span class="skill hidden" id="spec1-sv">Systemkonstruktion</span>
+                        <span class="skill" id="spec2-en">Python Programming</span>
+                        <span class="skill hidden" id="spec2-sv">Programmering i Python</span>
+                        <span class="skill">CAD</span>
+                    </div>
+
+                    <h3 id="future-studies-en">Future Studies</h3>
+                    <h3 id="future-studies-sv" class="hidden">Framtida studier</h3>
+                    <p id="msc-en">MSc, likely in production development with a focus on production systems</p>
+                    <p id="msc-sv" class="hidden">MSc, troligtvis inom produktionsutveckling med inriktning produktionssystem</p>
+                </div>
+
+                <div class="card">
+                    <h3 id="education-en">Education</h3>
+                    <h3 id="education-sv" class="hidden">Utbildning</h3>
+                    <p><strong>2021–ongoing:</strong> <span id="edu1-en">MEng in Automation and Mechatronics (300 credits)</span><span id="edu1-sv" class="hidden">Civilingenjör / Automation och mekatronik (300 hp)</span><br>
+                    Chalmers University of Technology, Gothenburg</p>
+                    <p><strong>2018-2021:</strong> <span id="edu2-en">Technology / Engineering Science</span><span id="edu2-sv" class="hidden">Teknik / Teknikvetenskap</span><br>
+                    Lagmansgymnasiet, Vara</p>
+                </div>
+
+                <div class="card">
+                    <h3 id="experience-en">Work Experience</h3>
+                    <h3 id="experience-sv" class="hidden">Arbetslivserfarenheter</h3>
+                    <ul>
+                        <li><strong>Summer 2023:</strong> <span id="job1-en">Junior Engineer, summer job</span><span id="job1-sv" class="hidden">Junior Ingenjör, sommarjobb</span><br>
+                        Akron-Maskiner AB, Järpås</li>
+                        <li><strong>Summer 2022:</strong> <span id="job2-en">Delivery Planner, summer job</span><span id="job2-sv" class="hidden">Leveransplanerare, sommarjobb</span><br>
+                        Skandia Elevator AB, Arentorp</li>
+                        <li><strong>2019–2022:</strong> <span id="job3-en">Warehouse Worker, summer job and hourly employment</span><span id="job3-sv" class="hidden">Lagerarbetare, sommarjobb och timanställning</span><br>
+                        Skandia Elevator AB, Arentorp</li>
+                        <li><strong>Spring 2020:</strong> <span id="job4-en">Workshop Assembler, hourly employment</span><span id="job4-sv" class="hidden">Verkstadsmontör, timanställning</span><br>
+                        Akron-Maskiner AB, Järpås</li>
+                        <li><strong>2018, 2019:</strong> <span id="job5-en">Workshop Assembler, summer job</span><span id="job5-sv" class="hidden">Verkstadsmontör, sommarjobb</span><br>
+                        Automationsteknik i Lidköping AB, Lidköping</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 id="skills-en">Skills</h3>
+                    <h3 id="skills-sv" class="hidden">Datorkunskap</h3>
+                    <div class="skills">
+                        <span class="skill">CAD (Solidworks, Fusion 360, Inventor, Catia v5)</span>
+                        <span class="skill">MS Office</span>
+                        <span class="skill">LaTeX</span>
+                        <span class="skill">Monitor ERP</span>
+                        <span class="skill" id="prog-en">Programming (Python, Arduino, C++, Matlab, Java)</span>
+                        <span class="skill hidden" id="prog-sv">Programmering (Python, Arduino, C++, Matlab, Java)</span>
+                        <span class="skill">MsC Adams</span>
+                        <span class="skill">COMSOL</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 id="certificates-en">Certificates and Licenses</h3>
+                    <h3 id="certificates-sv" class="hidden">Certifikat och Behörigheter</h3>
+                    <ul>
+                        <li id="cert1-en">Driving license: B, A1, Am</li>
+                        <li id="cert1-sv" class="hidden">Körkort: B-, A1-, Am-</li>
+                        <li id="cert2-en">Forklift license according to TLP10, A2-A4, B2, B3</li>
+                        <li id="cert2-sv" class="hidden">Truckkort enligt TLP10, A2-A4, B2, B3</li>
+                        <li id="cert3-en">Crane and safe lifting, Pillar crane, Overhead crane</li>
+                        <li id="cert3-sv" class="hidden">Travers och säkra lyft, Pelarkran, Traverskran</li>
+                    </ul>
+                </div>
+            </section>
+
+
+            <section id="projects">
+                <h2 id="projects-title-en">Projects</h2>
+                <h2 id="projects-title-sv" class="hidden">Projekt</h2>
+                
+                <div id="projects-container">
+                    <!-- Projects will be dynamically loaded here -->
+                </div>
+            </section>
+            <!-- <section id="projects">
+                <h2 id="projects-title-en">Projects</h2>
+                <h2 id="projects-title-sv" class="hidden">Projekt</h2>
+                
+                <div class="card project">
+                    <h3 id="project1-title-en">Bachelor's Thesis Project (May 2024) - Design of insectoid propulsion system</h3>
+                    <h3 id="project1-title-sv" class="hidden">Kandidatarbete (Maj 2024) - Design av framdrivningssystem för insektslik robot</h3>
+                    <img src="/api/placeholder/800/600" alt="Insectoid Propulsion System">
+                    <p id="project1-desc-en">Description of the bachelor's thesis project, including its purpose, your role, and the outcomes.</p>
+                    <p id="project1-desc-sv" class="hidden">Beskrivning av kandidatarbetet, inklusive syfte, din roll och resultat.</p>
+                </div>
+                
+                <div class="card project">
+                    <h3 id="project2-title-en">Data Collection and Analysis - Grain Dryer Testing</h3>
+                    <h3 id="project2-title-sv" class="hidden">Datainsamling och Analys - Tester på Spannmålstork</h3>
+                    <img src="/api/placeholder/800/600" alt="Grain Dryer Testing">
+                    <p id="project2-desc-en">During my summer job at Akron-Maskiner AB, I worked on data collection and analysis from tests performed on a grain dryer. This project involved using Solidworks and AutoCAD for certain aspects of the work.</p>
+                    <p id="project2-desc-sv" class="hidden">Under mitt sommarjobb på Akron-Maskiner AB arbetade jag med datainsamling och analys från tester utförda på en spannmålstork. Detta projekt involverade användning av Solidworks och AutoCAD för vissa aspekter av arbetet.</p>
+                </div> -->
+        <script>
+        // ... (previous JavaScript for language switching remains the same) ...
+
+        // Function to load projects
+        async function loadProjects() {
+            try {
+                const response = await fetch('projects.json');
+                const projects = await response.json();
+                const container = document.getElementById('projects-container');
+                const converter = new showdown.Converter();
+
+                projects.forEach(project => {
+                    const projectElement = document.createElement('div');
+                    projectElement.className = 'card project';
+                    projectElement.innerHTML = `
+                        <h3 id="${project.id}-title-en">${project.title.en}</h3>
+                        <h3 id="${project.id}-title-sv" class="hidden">${project.title.sv}</h3>
+                        <img src="${project.image}" alt="${project.title.en}">
+                        <div id="${project.id}-desc-en">${converter.makeHtml(project.description.en)}</div>
+                        <div id="${project.id}-desc-sv" class="hidden">${converter.makeHtml(project.description.sv)}</div>
+                    `;
+                    container.appendChild(projectElement);
+                });
+            } catch (error) {
+                console.error('Error loading projects:', error);
+            }
+        }
+
+        // Load projects when the page is ready
+        document.addEventListener('DOMContentLoaded', loadProjects);
+        </script>
+
+</body>
+</html>
